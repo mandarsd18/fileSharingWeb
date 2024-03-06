@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="home">
+
+    
+ <form action="/upload" method="post" enctype="multipart/form-data"  class="allInput">
+        <!-- <label for="file">File:</label> -->
+        <div class="inputDiv" onclick="inputClick()">
+            <img src="https://www.lifewire.com/thmb/TRGYpWa4KzxUt1Fkgr3FqjOd6VQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" class="cloudImg" alt="">
+            <h1 class="input-head">Upload your file!</h1>
+            <input type="file" id="file" name="file" class="input-file" hidden required>
+        </div>
+        
+        <label for="password" class="pass-lab">Password:</label>
+        <input type="password" id="password" name="password" >
+        <button type="submit" class="button-sub">Share</button>
+    </form>
+
+    <% if(locals.fileLink!=null){ %>
+        <div class="file-link-div">
+            Your file is uploaded on :
+            <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+        </div>
+    <% } %>
+</div>
+<script>
+    function inputClick(e){
+        document.querySelector(".input-file").click();
+       
+    }
+</script>
+</body>
+</html>
